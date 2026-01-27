@@ -1,0 +1,131 @@
+/* ========== ADD CUSTOMER BUTTON ========== */
+.add-customer {
+    width: 100%;
+    padding: var(--spacing-md);
+    background: var(--playhouse-gradient);
+    color: var(--color-black);
+    font-weight: 500;
+    border-radius: var(--border-radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.add-customer:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(210, 180, 140, 0.2);
+}
+
+.add-customer::before {
+    content: '🏠';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ========== TIMER CARDS ========== */
+.timer {
+    background: rgba(255, 166, 0, 0.1);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    border: 2px solid var(--color-warning);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.timer:hover {
+    border-color: var(--color-danger);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(210, 180, 140, 0.2);
+}
+
+.timer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.05) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+.customer-name {
+    font-size: 1.3rem;
+    color: var(--color-black);
+    font-weight: bold;
+}
+
+.time {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-white);
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.time::before {
+    content: '⏱️';
+    margin-right: 5px;
+}
+
+.expired {
+    color: var(--color-danger) !important;
+    animation: pulse .5s infinite;
+}
+
+@keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: .6; }
+}
+
+
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    .timer {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .customer-name {
+        font-size: 1.1rem;
+    }
+
+    .time {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timer {
+        padding: var(--spacing-sm);
+    }
+
+    .customer-name {
+        font-size: 1rem;
+    }
+
+    .time {
+        font-size: 1.3rem;
+    }
+
+    .add-customer {
+        padding: var(--spacing-lg);
+        font-size: 1.1rem;
+    }
+}
+
+/* ========== NOTIFICATION ========== */
+.notification {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}

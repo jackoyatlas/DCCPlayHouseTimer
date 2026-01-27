@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="icon" type="image/svg+xml" href="playhouse.svg">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="administrator.css">
+</head>
+
+
+<body>
+    <!-- ADMIN CONTROLS -->
+    <div id="admin-controls">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <h3>Timer Data Chart</h3>
+                <div style="margin-bottom: 1em;">
+                    <button onclick="loadChart('daily')" class="chart-btn">Daily</button>
+                    <button onclick="loadChart('weekly')" class="chart-btn">Weekly</button>
+                    <button onclick="loadChart('monthly')" class="chart-btn">Monthly</button>
+                </div>
+                <canvas id="timerChart"></canvas>
+            </div>
+
+            <!-- Generate Report Section -->
+            <div class="report-section">
+                <h3>Generate Report</h3>
+                <form id="report-date-form" class="report-date-form">
+                    <div class="date-fields">
+                        <label for="start-date">Start Date</label>
+                        <input type="date" id="start-date" name="start-date">
+                        <label for="end-date">End Date</label>
+                        <input type="date" id="end-date" name="end-date">
+                    </div>
+                    <button type="button" class="report-btn" onclick="showReport()" title="Generate Report"
+                        aria-label="Generate Report">
+                        <span class="report-icon">📊</span>
+                        <span class="report-text">Generate Report</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Report Display Section -->
+            <div id="report-display" style="display:none;" class="report-display-section">
+                <h2>Report Generated</h2>
+                <div id="report-content" class="report-content"></div>
+                <div class="report-download-buttons">
+                    <button class="report-btn pdf-choice" onclick="exportPDF()">📄 Download PDF</button>
+                    <button class="report-btn excel-choice" onclick="exportExcel()">📊 Download Excel</button>
+                    <button class="report-btn cancel-btn" onclick="clearReport()">❌ Clear</button>
+                </div>
+            </div>
+
+            <!-- User Approval Section -->
+            <div class="user-approval-section">
+                <h3>User Accounts</h3>
+                <button onclick="loadAllUsers()" style="margin-bottom: 1em;">Load All Users</button>
+                <div id="users-list" class="pending-users-list">
+                    <!-- Users will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODULE SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="administrator.js"></script>
+</body>
+
+</html>
