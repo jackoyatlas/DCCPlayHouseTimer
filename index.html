@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Playhouse Countdown</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="playhouse.svg">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="administrator.css">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- AUTH -->
+<div class="auth-wrapper auth-box">
+    <div class="auth-card">
+        <!-- LOGIN FORM -->
+        <div id="login-form">
+            <h2>Login</h2>
+            <input id="login-email" type="email" placeholder="Email">
+            <input id="login-password" type="password" placeholder="Password">
+            <button id="login-btn" class="primary-btn">Login</button>
+            <div style="margin-top:8px;">
+                <span id="forgot-link" class="link">Forgot Password?</span>
+            </div>
+            <div class="switch">
+                Don't have an account? <span id="to-signup" style="color: #FF6B6B; cursor: pointer; font-weight: bold;">Sign Up</span>
+            </div>
+            <div id="auth-status" class="status"></div>
+        </div>
+
+        <!-- SIGNUP FORM -->
+        <div id="signup-form" style="display:none;">
+            <h2>Sign Up</h2>
+            <input id="signup-fullname" type="text" placeholder="Full Name">
+            <input id="signup-email" type="email" placeholder="Email">
+            <input id="signup-password" type="password" placeholder="Password">
+            <button id="signup-btn" class="primary-btn">Sign Up</button>
+            <div class="switch">
+                Already have an account? <span id="to-login" style="color: #FF6B6B; cursor: pointer; font-weight: bold;">Login</span>
+            </div>
+            <div id="signup-status" class="status"></div>
+        </div>
+
+        <!-- FORGOT PASSWORD FORM -->
+        <div id="forgot-form" style="display:none;">
+            <h2>Reset Password</h2>
+            <input id="forgot-email" type="email" placeholder="Email">
+            <button id="forgot-btn" class="primary-btn">Send Reset Email</button>
+            <div class="switch">
+                <span id="back-to-login" style="color: #FF6B6B; cursor: pointer; font-weight: bold;">Back to Login</span>
+            </div>
+            <div id="forgot-status" class="status"></div>
+        </div>
+    </div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none;">
+    <!-- USER INFO -->
+    <div id="user-info" onclick="showLogoutDialog()">
+        <span id="user-display-name">Loading...</span>
+    </div>
+    <div class="container">
+        <h1>Playhouse Countdown</h1>
+        <div id="notification" class="notification" style="display:none;"></div>
+        <button class="add-customer" onclick="addCustomer()">Add Customer</button>
+        <div id="timers"></div>
+    </div>
+
+    <!-- CUSTOMER NAME MODAL -->
+    <div id="customer-name-modal" style="display:none;">
+        <div class="modal-content">
+            <h3>Enter Customer Details</h3>
+            <input id="customer-name-input" type="text" placeholder="Customer Name">
+            <input id="receipt-number-input" type="text" placeholder="Receipt Number">
+            <div class="modal-buttons">
+                <button id="customer-name-confirm" class="primary-btn">Add</button>
+                <button id="customer-name-cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- LOGOUT CONFIRMATION DIALOG -->
+<div id="logout-dialog" style="display:none;">
+    <div class="logout-dialog-content">
+        <h3>Are you sure you want to logout?</h3>
+        <div class="logout-buttons">
+            <button onclick="confirmLogout()" class="logout-confirm">Yes, Logout</button>
+            <button onclick="hideLogoutDialog()" class="logout-cancel">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="position: absolute; top: 10px; right: 10px; font-size: 12px; color: #666; border: 1px solid #000; padding: 5px;">
+    <a href="https://www.google.com/search?q=hernane+benedicto+linkedin&oq=hernane+benedicto+linkedin&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MggIARBFGCcYOzIGCAIQRRhAMgoIAxAAGIAEGKIEMgcIBBAAGO8FMgcIBRAAGO8FMgoIBhAAGIAEGKIEMgYIBxBFGDzSAQgyMjcxajBqN6gCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" style="color: #666; text-decoration: none;">Created by JB</a>
+</footer>
+
+<!-- MODULE SCRIPTS -->
+<script type="module" src="firebase.js"></script>
+<script type="module" src="auth.js"></script>
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
